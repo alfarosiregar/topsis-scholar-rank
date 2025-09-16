@@ -335,6 +335,8 @@ with st.sidebar:
     else:
         weights = weights / weights.sum()
 
+    st.markdown("---")
+
     st.header("🛠️ Pengaturan Attribut")
     # Atribut untuk C0..C4
     c0_attr = st.selectbox("Atribut C0 (Pekerjaan)", ["Benefit", "Cost"], index=0)
