@@ -77,7 +77,7 @@ if "user_entries" not in st.session_state:
 # Helper mapping Pekerjaan
 # =========================
 def map_pekerjaan(p):
-    p = "" if pd.isna(p) else str(p).upper()
+    p = "" if pd.isna(p) else str(p).lower()
     if any(x in p for x in ["pegawai negeri", "pegawai swasta", "dosen", "guru"]):
         return 1.0
     elif "wiraswasta" in p:
