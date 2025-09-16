@@ -263,6 +263,11 @@ with st.sidebar:
                 "Guru",
                 "Wiraswasta",
                 "Petani",
+                "Buruh",
+                "Asisten Rumah Tangga",
+                "Supir",
+                "Pedagang",
+                "Sales",
                 "Lainnya"
             ],
             index=0   # default pilihan pertama
