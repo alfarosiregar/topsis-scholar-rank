@@ -307,7 +307,6 @@ with st.sidebar:
                 )
 
                 st.success("✅ Data Berhasil Disimpan.")
-                st.rerun()  # refresh agar tabel ambil dari DB
 
     st.markdown("---")
     st.caption("💡 Data yang Baru Ditambahkan:")
