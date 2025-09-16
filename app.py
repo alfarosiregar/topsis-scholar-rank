@@ -6,12 +6,26 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine, text
 from datetime import datetime
+from PIL import Image
+import os, streamlit as st
 
 # =========================
 # KONFIGURASI
 # =========================
-st.set_page_config(page_title="Scholar Rank", layout="wide")
-st.title("Daftar Nama Penerima")
+st.set_page_config(
+    page_title="Scholar Rank",
+    page_icon="🧭",
+    layout="wide",
+)
+
+# --- HERO / BANNER ---
+ASSETS = os.path.join(os.path.dirname(__file__), "assets")
+os.makedirs(ASSETS, exist_ok=True)
+
+banner_path = os.path.join(ASSETS, "banner.png")
+if os.path.exists(banner_path):
+    st.image(banner_path, use_container_width=True, caption="Program Indonesia Pintar – Ranking with TOPSIS")
+
 
 DB_PATH = "data/data.db"
 os.makedirs("data", exist_ok=True)
@@ -229,6 +243,11 @@ def topsis(X: np.ndarray, weights: np.ndarray, criteria: list[str]):
 # SIDEBAR (tambah input Pekerjaan, bobot & atribut C0)
 # =========================
 with st.sidebar:
+    logo_path = os.path.join(ASSETS, "logo.png")
+    if os.path.exists(logo_path):
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            st.image(logo_path, width=90, caption="Scholar Rank")
     st.header("🗃️ Tambah Data Siswa / Siswi")
     with st.form("form_tambah_db", clear_on_submit=True):
         kode_alt = st.text_input("Kode Alternatif", placeholder="contoh: A88")
